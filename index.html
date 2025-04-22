@@ -16,7 +16,7 @@
     <title>chptr1</title>
 
     <style>
-        body { background-color: #FDF8C4; }
+        body { background-color: #f3f3f3; }
     </style>
 
 </head>
@@ -71,16 +71,16 @@
                         
                               if (response.ok) {
                                 statusMsg.textContent = result.message;
-                                statusMsg.style.color = 'green';
+                                statusMsg.style.color = '#52B788';
                                 emailInput.value = '';
                               } else {
                                 statusMsg.textContent = result.error || 'Something went wrong.';
-                                statusMsg.style.color = 'red';
+                                statusMsg.style.color = '#F64B4B';
                               }
                             } catch (error) {
                               console.error('Error:', error);
                               statusMsg.textContent = 'An error occurred. Please try again later.';
-                              statusMsg.style.color = 'red';
+                              statusMsg.style.color = '#F64B4B';
                             }
                           });
                         });
