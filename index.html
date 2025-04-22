@@ -48,7 +48,7 @@
                           const emailInput = document.getElementById('email');
                           const statusMsg = document.getElementById('status-msg');
                         
-                          if (!form || !emailInput || !statusMsg) return; // Guard clause
+                          if (!form || !emailInput || !statusMsg) return;
                         
                           form.addEventListener('submit', async function (e) {
                             e.preventDefault();
@@ -70,9 +70,8 @@
                               const result = await response.json();
                         
                               if (response.ok) {
-                                statusMsg.textContent = result.message;
-                                statusMsg.style.color = '#52B788';
-                                emailInput.value = '';
+                                document.getElementById('subscribe-form').style.display = 'none';
+                                statusMsg.innerHTML = '<h3 style="color:#52B788; margin-top: 20px;">Thank you for subscribing! 🎉</h3>';
                               } else {
                                 statusMsg.textContent = result.error || 'Something went wrong.';
                                 statusMsg.style.color = '#F64B4B';
