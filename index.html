@@ -30,7 +30,7 @@
         <div class="content-main animate">
             <div class="container">
                 <h1 class="font-size-70">chptr1 is coming soon</h1>
-                <h2 class="opacity-60">Join the waitlist for updates!</h2>
+                <h2 class="opacity-60" id="join-text">Join the waitlist for updates!</h2>
                 <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
                     <form class="form" id="subscribe-form">
                         <div class="input-group">
@@ -70,13 +70,15 @@
                               const result = await response.json();
                         
                               if (response.ok) {
+                                document.getElementById('join-text').style.display = 'none';
+
                                 const formContainer = document.getElementById('subscribe-form');
                                 formContainer.outerHTML = `
-                                  <div  class="font-size-70" id="thank-you-message" style="margin-top: 40px; text-align: center;">
-                                    <h1>
+                                  <div  class="opacity-60"" id="thank-you-message" style="margin-top: 40px; text-align: center;">
+                                    <h2>
                                       Thank you for subscribing!
-                                    </h1>
-                                    <p style="color:#555; font-size: 16px;">
+                                    </h2>
+                                    <p class="opacity-60">
                                       We'll keep you posted with the latest updates on chptr1.
                                     </p>
                                   </div>
