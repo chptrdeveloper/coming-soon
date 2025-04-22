@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-    <title>CreaSoon - Creative Coming Soon Template</title>
+    <title>chptr1</title>
 
     <style>
         body { background-color: #f3f3f3; }
@@ -25,16 +25,6 @@
 
 <div class="page-wrapper">
     <header>
-        <div class="brand animate"><a href=""><img src="assets/img/logo.png" alt=""></a></div>
-        <nav>
-            <ul class="navigation animate">
-                <li><a href="" data-toggle="modal" data-target="#modal-about-us">About Us</a></li>
-                <li><a href="" data-toggle="modal" data-target="#modal-our-works">Our Works</a></li>
-                <li><a href="" data-toggle="modal" data-target="#modal-services">Services</a></li>
-                <li><a href="" data-toggle="modal" data-target="#modal-contact-us">Contact</a></li>
-            </ul>
-            <!--end navigation-->
-        </nav>
     </header>
     <div class="content-wrapper">
         <div class="content-main animate">
@@ -44,11 +34,34 @@
                 <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
                     <form class="form">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="email" placeholder="Your email">
+                            <input class="form-control" name="email" type="email" id="email" placeholder="Your email" required>
                             <span class="input-group-btn">
                                 <button class="btn" type="submit"><i class="arrow_right"></i></button>
                             </span>
+                                                        <script>
+                            document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
+                              e.preventDefault();
+                            
+                              const email = document.getElementById('email').value;
+                            
+                              const response = await fetch('https://0ppf01gtz6.execute-api.eu-central-1.amazonaws.com/prod/subscription', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: {"email": JSON.stringify({ email })},
+                              });
+                            
+                              const data = await response.json();
+                            
+                              if (response.ok) {
+                                alert(data.message);
+                              } else {
+                                alert(`Error: ${data.error}`);
+                              }
+                            });
+                            </script>
                         </div>
+
+                            
                         <p class="note">*Only relevant information, no spam</p>
                     </form>
                     <!--end form-->
