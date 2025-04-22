@@ -70,8 +70,17 @@
                               const result = await response.json();
                         
                               if (response.ok) {
-                                document.getElementById('subscribe-form').style.display = 'none';
-                                statusMsg.innerHTML = '<h3 style="color:#52B788; margin-top: 20px;">Thank you for subscribing! 🎉</h3>';
+                                const formContainer = document.getElementById('subscribe-form');
+                                formContainer.outerHTML = `
+                                  <div  class="font-size-70" id="thank-you-message" style="margin-top: 40px; text-align: center;">
+                                    <h1>
+                                      Thank you for subscribing!
+                                    </h1>
+                                    <p style="color:#555; font-size: 16px;">
+                                      We'll keep you posted with the latest updates on chptr1.
+                                    </p>
+                                  </div>
+                                `;
                               } else {
                                 statusMsg.textContent = result.error || 'Something went wrong.';
                                 statusMsg.style.color = '#F64B4B';
